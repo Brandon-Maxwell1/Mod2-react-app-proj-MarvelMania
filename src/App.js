@@ -19,14 +19,16 @@ import './App.css';
 const App = () => {
 
   // Begin creating state here:
-  const [userLogin, setUserLogin] = useState('')
+  const [userName, setUserLogin] = useState('')
   const [comicBookList, setComicBookList] = useState([])
   const [characterList, setCharacterList] = useState([])
   const apiKey = "2a451abc3d33d7be77c4ac254e5b663b"
 
+
+
 // Creating useEffects for retrieving hero/villian data and comic book data
   useEffect(() => {
-    fetchHeroVillianData();
+    fetchCharacterData();
   }, [])
 
   useEffect(() => {
@@ -40,16 +42,16 @@ const App = () => {
     try {
       const response = await axios.get('https://gateway.marvel.com:443/v1/public/comics?'+'&apikey='+apiKey)
       // setComicBookList('#')
-      console.log(response)
+      // console.log(response)
     } catch (error) {
       console.log(error)
     }
   }
 
-  const fetchHeroVillianData = async () => {
+  const fetchCharacterData = async () => {
     try {
       const response = await axios.get('https://gateway.marvel.com:443/v1/public/characters?limit=50' + '&apikey=' + apiKey)
-      setHeroVillianList(response.data.data.results)
+      setCharacterList(response.data.data.results)
       console.log(response.data.data.results)
     } catch (error) {
       console.log(error)
@@ -61,7 +63,7 @@ const App = () => {
     <div>
       {/* Creating routes for different pages found in Nav bar */}
 
-      <UserContext.Provider value={userLogin}>
+      <UserContext.Provider value={userName}>
         <Navbar />
 
         <Routes>

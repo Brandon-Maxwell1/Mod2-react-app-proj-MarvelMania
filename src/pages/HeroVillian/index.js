@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import UserContext from '../../contexts/UserContext';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
-import './styles.css'
 
-const HeroVillian = ( {characterList} ) => {
+// import './styles.css'
 
-    const [initCharacter, setInitCharacter] = useState ([]);
+const HeroVillian = () => {
+    const userName = useContext(UserContext)
+    // const [initCharacter, setInitCharacter] = useState ([]);
     
 
 
