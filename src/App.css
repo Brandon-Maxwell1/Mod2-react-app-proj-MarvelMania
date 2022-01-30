@@ -1,0 +1,4 @@
+#menuButtonDiv{
+    display: flex;
+    flex-direction: column;
+}

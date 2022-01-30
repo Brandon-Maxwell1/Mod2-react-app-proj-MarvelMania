@@ -3,12 +3,13 @@ import './style.css';
 
 const Login = () => {
     return (
-        
-            <form id="loginPage">
+        <div className="loginPage" id="bgDiv">
+
+            <form className="loginPage">
                 <div className="mb-3" className="dataEntryField">
                     <label for="exampleInputEmail1" className="form-label">Agent Name:</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                        <div id="emailHelp" className="form-text"></div>
+                    <div id="emailHelp" className="form-text"></div>
                 </div>
                 <br></br>
                 <div className="mb-3" className="dataEntryField">
@@ -17,11 +18,11 @@ const Login = () => {
                 </div>
                 <div className="mb-3 form-check">
                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                        <label className="form-check-label" for="exampleCheck1" title="To compley with Geneva Convention, please connfirm you possess Clearance Level 7 access.">CLEARANCE LEVEL 7</label>        
+                    <label className="form-check-label" for="exampleCheck1" title="To compley with Geneva Convention, please connfirm you possess Clearance Level 7 access.">CLEARANCE LEVEL 7</label>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-        
+        </div>
     );
 }
 

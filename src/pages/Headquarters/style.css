@@ -1,0 +1,50 @@
+#grid-container {
+    display: grid;    
+    grid-template-columns: auto auto auto;
+    grid-gap: 7px;
+    background-color:  rgba(255, 255, 255, 0.8);
+    padding: 0px;        
+    height: 100%;
+    width: 100%;       
+}
+  
+#grid-container > div {
+    background-color: #0b385e;    
+    align-content: center;   
+}
+  
+#mainDivImage {
+    background-image: url(https://img1.goodfon.com/wallpaper/nbig/9/24/marvel-encyclopedia-heroes.jpg);
+    /* background-image: url(https://images-na.ssl-images-amazon.com/images/I/71LHQ1o-3HL.__AC_SY300_SX300_QL70_FMwebp_.jpg); */
+    background-size: 100% 100%;
+    height: 45vh;
+    width: 80vw;
+    grid-column: 1 / 4;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+#minorDiv1{ 
+    display: grid;
+    grid-column: 1 / 2;  
+    justify-items: center;       
+}
+  
+#minorDiv2{
+    display: grid;    
+    grid-column: 2 / 3;   
+    justify-items: center;  
+}
+  
+#minorDiv3{
+    display: grid;
+    grid-column: 3 / 4;
+    justify-items: center;  
+}
+
+
+
+
+
+
