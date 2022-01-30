@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import UserContext from '../../contexts/UserContext';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
     const userName = useContext(UserContext)    
     console.log(userName)
     return (
-
         
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
