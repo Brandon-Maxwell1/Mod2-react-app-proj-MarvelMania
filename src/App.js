@@ -26,7 +26,7 @@ const App = () => {
 
 
 
-// Creating useEffects for retrieving hero/villian data and comic book data
+  // Creating useEffects for retrieving hero/villian data and comic book data
   useEffect(() => {
     fetchCharacterData();
   }, [])
@@ -40,7 +40,7 @@ const App = () => {
   // Creating axios fetches for data from API
   const fetchComicBookData = async () => {
     try {
-      const response = await axios.get('https://gateway.marvel.com:443/v1/public/comics?'+'&apikey='+apiKey)
+      const response = await axios.get('https://gateway.marvel.com:443/v1/public/comics?' + '&apikey=' + apiKey)
       // setComicBookList('#')
       // console.log(response)
     } catch (error) {
