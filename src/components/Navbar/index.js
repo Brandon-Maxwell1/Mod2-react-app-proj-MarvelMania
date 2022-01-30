@@ -3,6 +3,7 @@ import UserContext from '../../contexts/UserContext';
 import { Link } from 'react-router-dom';
 
 
+
 const Navbar = () => {
     const userName = useContext(UserContext)
     console.log(userName)
@@ -10,7 +11,7 @@ const Navbar = () => {
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-            <div id="menuButtonDiv">
+            <div>
                 <Link className="nav-link" to="/">
                     <img src="https://assets3.thrillist.com/v1/image/737136/828x610/flatten;crop;webp=auto;jpeg_quality=70" alt='Marvel Headquarters' width={130} height={65} /> Home
                 </Link>
