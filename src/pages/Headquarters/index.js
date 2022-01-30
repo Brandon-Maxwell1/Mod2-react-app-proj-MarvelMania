@@ -5,18 +5,24 @@ import './style.css';
 const Headquarters = () => {
     const userName = useContext(UserContext)
     return (
-        <div>
-            {/* {
-         !userName ? "Welcome Future Avenger" : "Suit up {userName}"
-         }   */}
+        
+        
          <div id="grid-container">
+
         <div id="mainDivImage"></div>
-         <div id="minorDiv1"><iframe width="400" height="200" src="https://www.youtube.com/embed/x7Krla_UxRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-         <div id="minorDiv2"><iframe width="400" height="200" src="https://www.youtube.com/embed/Rt_UqUm38BI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-         <div id="minorDiv3"><iframe width="400" height="200" src="https://www.youtube.com/embed/TfAC_hT19O0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+        <div id="minorFlex-container">
+         <div id="minorDiv1"><iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/x7Krla_UxRg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+         <div id="minorDiv2"><iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/Rt_UqUm38BI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+         <div id="minorDiv3"><iframe width="400vw" height="200vh" src="https://www.youtube.com/embed/TfAC_hT19O0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+         </div>
+         <div>
+           
+         </div>
+
          </div>
          
-        </div>
+        
     );
 }
 

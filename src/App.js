@@ -19,7 +19,7 @@ import './App.css';
 const App = () => {
 
   // Begin creating state here:
-  const [userName, setUserLogin] = useState('')
+  const [userName, setUserName] = useState('')
   const [comicBookList, setComicBookList] = useState([])
   const [characterList, setCharacterList] = useState([])
   const apiKey = "2a451abc3d33d7be77c4ac254e5b663b"
@@ -68,7 +68,7 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Headquarters />} />
-          <Route path="login" element={<Login setUserLogin={setUserLogin} />} />
+          <Route path="login" element={<Login setUserName={setUserName} />} />
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
