@@ -1,28 +1,40 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Headquarters from '../Headquarters';
 import './style.css';
 
 
-const Login = () => {
+const Login = ( {setUserName} ) => {
 
     // declare state
-    const [agentName, setAgentName] = useState('');    
+    const [agentName, setAgentName] = useState(''); 
+    const redirectHome = useNavigate();
+    
 
     // create handles for for login form
-    const updateAgentName = e => {
+    const changeAgentName = e => {
         setAgentName(e.target.value)
         
     }
 
     const submitAgentName = e => {
         e.preventDefault()
+        setUserName(agentName)
+        // Once logged in, redirect back to homepage
+        redirectHome('/')
+        
     }
 
-    console.log('state in login', agentName)
+    
+
+   
+
+    // console.log('props', setUserName)
 
     return (
         <div className="loginPage" id="bgDiv">
 
-            <form className="loginPage" onSubmit={submitAgentName}>
+            <form className="loginPage" onSubmit={submitAgentName} action='/home'>
                 <div className="mb-3" className="dataEntryField">
                     <label htmlFor="updateInputName1" className="form-label">Agent Name:</label>
                     <input 
@@ -31,7 +43,7 @@ const Login = () => {
                     id="updateInputName1" 
                     aria-describedby="nameHelp"
                     value={agentName}
-                    onChange={updateAgentName}
+                    onChange={changeAgentName}
                      />
                     <div id="nameHelp" className="form-text"></div>
                 </div>
