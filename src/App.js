@@ -18,46 +18,52 @@ import './App.css';
 
 const App = () => {
 
-  // Begin creating state here:
+  // Begin creating variables for the state here:
   const [userName, setUserName] = useState('')
   const [comicBookList, setComicBookList] = useState([])
-  const [characterList, setCharacterList] = useState([])
+  const [characters, setCharacters] = useState([])
   const apiKey = "2a451abc3d33d7be77c4ac254e5b663b"
 
 
-
-  // Creating useEffects for retrieving hero/villian data and comic book data
+  // Creating useEffects for retrieving character data and comic book data
   useEffect(() => {
     fetchCharacterData();
   }, [])
 
-  useEffect(() => {
-    fetchComicBookData();
-  }, [])
+  // useEffect(() => {
+  //   fetchComicBookData();
+  // }, [])
 
 
 
-  // Creating axios fetches for data from API
-  const fetchComicBookData = async () => {
-    try {
-      const response = await axios.get('https://gateway.marvel.com:443/v1/public/comics?' + '&apikey=' + apiKey)
-      // setComicBookList('#')
-      // console.log(response)
-    } catch (error) {
-      console.log(error)
-    }
+ // Creating axios fetches for data from API
+
+//  const fetchComicBookData = async () => {
+//   try {
+//     const response = await axios.get('https://gateway.marvel.com:443/v1/public/comics?' + '&apikey=' + apiKey)
+//     // setComicBookList('#')
+//     // console.log(response)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
+const fetchCharacterData = async () => {
+  try {
+    const response = await axios.get('https://gateway.marvel.com:443/v1/public/characters?limit=100' + '&apikey=' + apiKey)
+    setCharacters(response.data.data.results)
+    // console.log(response.data.data.results)
+  } catch (error) {
+    console.log(error)
   }
+}
 
-  const fetchCharacterData = async () => {
-    try {
-      const response = await axios.get('https://gateway.marvel.com:443/v1/public/characters?limit=50' + '&apikey=' + apiKey)
-      setCharacterList(response.data.data.results)
-      console.log(response.data.data.results)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+https://gateway.marvel.com:443/v1/public/characters?ts-1&apikey=2a451abc3d33d7be77c4ac254e5b663b&hash=
 
+ffd275c5130566a2916217b101f26150
+
+console.log("characters", characters)
+ 
 
   return (
     <div>
@@ -72,7 +78,7 @@ const App = () => {
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
-          <Route path="character" element={<HeroVillian characterList={characterList} />} />
+          <Route path="character" element={<HeroVillian characters={characters} />} />
 
 
         </Routes>

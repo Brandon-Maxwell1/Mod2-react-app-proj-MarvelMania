@@ -12,7 +12,7 @@ const Navbar = () => {
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             {
-                !userName ? "Welcome Agent, Login to Authenticate" : (`Welcome Back Agent {userName}!`)
+                !userName ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${userName}!`
             }
             <div className="container-fluid">
 
