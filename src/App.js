@@ -2,6 +2,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import md5 from 'md5';
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,6 +24,10 @@ const App = () => {
   const [comicBookList, setComicBookList] = useState([])
   const [characters, setCharacters] = useState([])
   const apiKey = "2a451abc3d33d7be77c4ac254e5b663b"
+  const privateApiKey = "e1db920901ca715ad2fb0c265a77d6b20278844e"
+  const timeStamp = Number(new Date())
+  const hash = timeStamp + privateApiKey + apiKey
+
 
 
   // Creating useEffects for retrieving character data and comic book data
@@ -34,7 +39,7 @@ const App = () => {
   //   fetchComicBookData();
   // }, [])
 
-
+// console.log("hash", hash)
 
  // Creating axios fetches for data from API
 
@@ -50,7 +55,7 @@ const App = () => {
 
 const fetchCharacterData = async () => {
   try {
-    const response = await axios.get('https://gateway.marvel.com:443/v1/public/characters?limit=100' + '&apikey=' + apiKey)
+    const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=50&apikey=${apiKey}&hash=${hash}`)
     setCharacters(response.data.data.results)
     // console.log(response.data.data.results)
   } catch (error) {
@@ -58,9 +63,9 @@ const fetchCharacterData = async () => {
   }
 }
 
-https://gateway.marvel.com:443/v1/public/characters?ts-1&apikey=2a451abc3d33d7be77c4ac254e5b663b&hash=
 
-ffd275c5130566a2916217b101f26150
+
+
 
 console.log("characters", characters)
  
@@ -78,13 +83,10 @@ console.log("characters", characters)
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
-          <Route path="character" element={<HeroVillian characters={characters} />} />
+          <Route path="character" element={<HeroVillian characters={characters} itemsPerPage={10}/>} />
 
 
         </Routes>
-<br></br>
-<br></br>
-<br></br>
 <br></br>
 <br></br>
 <br></br>
