@@ -7,41 +7,23 @@ import axios from 'axios';
 
 const HeroVillian = ({ characters, itemsPerPage }) => {
     const userName = useContext(UserContext)
-    const [initCharacter, setInitCharacter] = useState([]);
+    const [currentCharacter, setCurrentCharacter] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
 
-    console.log("results", characters)
+    // console.log("results", characters)
 
     useEffect(() => {
-        try {
+        
             // Fetch characters from another resources.
             const endOffset = itemOffset + itemsPerPage;
             console.log(`Loading characters from ${itemOffset} to ${endOffset}`);
 
-            const characterNameURL = []
+            if(currentCharacter) currentPage()
 
-            for (let i = itemOffset; i < endOffset; i++) {
-                if (i < 898) {
-                    characterNameURL.push(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
-                }
-                else {
-                    characterNameURL.push(`https://pokeapi.co/api/v2/pokemon/${i + 9102}`)
-                }
-            }
-
-
-            // console.log('urls', characterNameURL)
-            currentPage(characterNameURL)
-            const length = characters.length ? characters.length : 1118
-            // setCurrentPokemon(characters.slice(itemOffset, endOffset));
-            // if(currentPokemon) currentPage()
-            setPageCount(Math.ceil(length / itemsPerPage));
-        } catch (error) {
-            console.log(error)
-        }
+            setPageCount(Math.ceil(characters.length / itemsPerPage));
     }, [itemOffset, itemsPerPage]);
 
 
@@ -49,10 +31,10 @@ const HeroVillian = ({ characters, itemsPerPage }) => {
         return (
             <div>
                 {
-                    characters &&
-                    characters.map(characters => (
+                    currentCharacter &&
+                    currentCharacter.map(characters => (
                         <div className="card">
-                            <img src={characters.thumbnail.path} className="card-img-top" alt="Character Image" />
+                            <img src="..." className="card-img-top" alt="Character Image" />
                             <div className="card-body">
                                 <h5 className="card-title">{characters.name}</h5>
                                 <p className="card-text">{characters.description}</p>
@@ -65,24 +47,16 @@ const HeroVillian = ({ characters, itemsPerPage }) => {
         );
     }
 
-    const currentPage = (characterNameURL) => {
-        try {
-            // axios all() makes all concurrent requests
-            // instead of doing individuals req, we can programtically make multiple req
-            // If one of our Promises fails, the entire request fails
-            const characterArray = []
-            axios.all(characterNameURL.map(async (url) => {
-                const response = await axios.get(url)
-                console.log(response.data.data)
-                characterArray.push(response.data.data)
-                setInitCharacter(characterArray.flat())
-                // setCurrentPokemon(...currentPokemon, response.data)
-            }))
+    const currentPage = () => {        
+        currentCharacter.forEach( async (characters) => {
+            try{
 
-            console.log('Array', characterArray)
-        } catch (error) {
+            } catch (error) {
 
-        }
+            }
+           
+        })
+        
     }
 
     const handlePageClick = (event) => {
@@ -92,6 +66,7 @@ const HeroVillian = ({ characters, itemsPerPage }) => {
         );
         setItemOffset(newOffset);
     };
+    console.log("current", characters)
 
     return (
         <div>

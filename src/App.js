@@ -26,7 +26,7 @@ const App = () => {
   const apiKey = "2a451abc3d33d7be77c4ac254e5b663b"
   const privateApiKey = "e1db920901ca715ad2fb0c265a77d6b20278844e"
   const timeStamp = Number(new Date())
-  const hash = timeStamp + privateApiKey + apiKey
+  const hash = "13cb39a4933efbf83cf0a565e4c26429"
 
 
 
@@ -55,7 +55,7 @@ const App = () => {
 
 const fetchCharacterData = async () => {
   try {
-    const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=50&apikey=${apiKey}&hash=${hash}`)
+    const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&ts=1&apikey=${apiKey}&hash=${hash}`)
     setCharacters(response.data.data.results)
     // console.log(response.data.data.results)
   } catch (error) {
