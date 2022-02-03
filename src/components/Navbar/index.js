@@ -6,13 +6,13 @@ import './style.css';
 
 
 const Navbar = () => {
-    const userName = useContext(UserContext)
-    console.log('nav', userName)
+    const user = useContext(UserContext)
+    console.log('nav', user)
     return (
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             {
-                !userName ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${userName}!`
+                !user ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${user}!`
             }
             <div className="container-fluid">
 
@@ -35,7 +35,7 @@ const Navbar = () => {
                         </li>
                         <br></br>
                         {
-                            !userName ?
+                            !user ?
                                 <li className="nav-item">
                                     <Link to="login">
                                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh65ZQIeEqVpP-G2EEIXd7h7fxXQZoQIBYNw&usqp=CAU" alt="Login" width={80} height={45} />
@@ -52,8 +52,8 @@ const Navbar = () => {
                                             <Link className="nav-link" to="comic">
                                                 Historical Archives
                                             </Link>
-                                            <Link className="nav-link" to="character">
-                                                Persons of Interest
+                                            <Link className="nav-link" to="profiles">
+                                                X Files
                                             </Link>
 
                                         </ul>

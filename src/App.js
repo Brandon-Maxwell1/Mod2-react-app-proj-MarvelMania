@@ -1,8 +1,8 @@
 // Imports
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-import md5 from 'md5';
+import md5 from 'md5'
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -19,78 +19,58 @@ import './App.css';
 
 const App = () => {
 
-  // Begin creating variables for the state here:
-  const [userName, setUserName] = useState('')
+  // Create constiables for the state here:
+  const [user, setUser] = useState('')
   const [comicBookList, setComicBookList] = useState([])
-  const [characters, setCharacters] = useState([])
-  const apiKey = "2a451abc3d33d7be77c4ac254e5b663b"
-  const privateApiKey = "e1db920901ca715ad2fb0c265a77d6b20278844e"
-  const timeStamp = Number(new Date())
-  const hash = "13cb39a4933efbf83cf0a565e4c26429"
+  const [profileList, SetProfileList] = useState([]) 
+  
+ 
+  // Base API endpoint
+  //http(s)://gateway.marvel.com/
 
-
-
-  // Creating useEffects for retrieving character data and comic book data
+  // Create useEffects for retrieving character data and comic book data
   useEffect(() => {
-    fetchCharacterData();
+    GetProfileData();
   }, [])
 
   // useEffect(() => {
   //   fetchComicBookData();
   // }, [])
 
-// console.log("hash", hash)
+  // Create axios fetches for data from API
 
- // Creating axios fetches for data from API
-
-//  const fetchComicBookData = async () => {
-//   try {
-//     const response = await axios.get('https://gateway.marvel.com:443/v1/public/comics?' + '&apikey=' + apiKey)
-//     // setComicBookList('#')
-//     // console.log(response)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
-const fetchCharacterData = async () => {
-  try {
-    const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&ts=1&apikey=${apiKey}&hash=${hash}`)
-    setCharacters(response.data.data.results)
-    // console.log(response.data.data.results)
-  } catch (error) {
-    console.log(error)
+  const GetProfileData = async () => {
+    try {
+      const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=50&apikey=2a451abc3d33d7be77c4ac254e5b663b
+      `)
+      SetProfileList(response.data.data.results)
+      console.log(response.data.data.results)
+    } catch (error) {
+      console.log(error)
+    }
   }
-}
-
-
-
-
-
-console.log("characters", characters)
- 
+  // 1559 total profiles; max allowed 100 per return
 
   return (
     <div>
       {/* Creating routes for different pages found in Nav bar */}
 
-      <UserContext.Provider value={userName}>
+      <UserContext.Provider value={user}>
         <Navbar />
 
         <Routes>
           <Route path="/" element={<Headquarters />} />
-          <Route path="login" element={<Login setUserName={setUserName} />} />
+          <Route path="login" element={<Login setUser={setUser} />} />
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
-          <Route path="character" element={<HeroVillian characters={characters} itemsPerPage={10}/>} />
-
+          <Route path="profiles" element={<HeroVillian profileList={profileList} itemsPerPage={20} />} />
 
         </Routes>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <Footer />
 
       </UserContext.Provider>

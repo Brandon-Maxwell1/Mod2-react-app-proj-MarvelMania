@@ -4,7 +4,7 @@ import Headquarters from '../Headquarters';
 import './style.css';
 
 
-const Login = ( {setUserName} ) => {
+const Login = ( {setUser} ) => {
 
     // declare state
     const [agentName, setAgentName] = useState(''); 
@@ -19,7 +19,7 @@ const Login = ( {setUserName} ) => {
 
     const submitAgentName = e => {
         e.preventDefault()
-        setUserName(agentName)
+        setUser(agentName)
         // Once logged in, redirect back to homepage
         redirectHome('/')
         
