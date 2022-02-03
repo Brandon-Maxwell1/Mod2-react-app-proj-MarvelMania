@@ -6,15 +6,24 @@
     margin: 2rem;
     padding: 1rem; 
     width: 45rem;
-    border: 2px solid black;
-    background-color: burlywood;
+    border: 5px solid rgb(56, 58, 90);
+    background-color: black;
 }
 
 .card-body{
     width: 10rem;
-    background-color: goldenrod;    
+    background-color: rgb(56, 58, 90); 
+    color: ghostwhite;   
 }
 
 .card-img{
     width: auto;
+}
+
+div > h6{
+    color: ghostwhite;
+}
+
+.form-inline{
+    width: 40%;
 }
