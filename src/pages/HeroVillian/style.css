@@ -27,3 +27,8 @@ div > h6{
 .form-inline{
     width: 40%;
 }
+
+#buttonDiv{
+    display: flex;
+    flex-direction: row;
+}

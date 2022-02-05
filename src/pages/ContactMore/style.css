@@ -1,0 +1,41 @@
+#contact-container{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+#mainContact-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#mainContactImage1{    
+    /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzW4b_W4OP-EKxBA2F78wlZpua-_km-T6c4Q&usqp=CAU); */
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNQvluNOat646rnWzaXMyIQtYhjRFM62J_Hg&usqp=CAU);
+    background-size: 100% 100%;    
+    height: 45vh;
+    width: 70vw;       
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+
+.card-img-top{
+    width: 100px;
+    height: 100px;
+}
+
+
+.card{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+.card-group{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;    
+}

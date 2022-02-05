@@ -28,7 +28,7 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                        <Link to="contact">
+                            <Link to="contact">
                                 <img src="https://static3.srcdn.com/wordpress/wp-content/uploads/2022/01/Andrew-Garfield-Amazing-Spider-Man-2-phone.jpg" alt='Contact Us' width={80} height={45} />
                                 Contact Us
                             </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 :
-                                <li>                                    
+                                <li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Top Secret Files

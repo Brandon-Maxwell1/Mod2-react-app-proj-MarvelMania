@@ -38,15 +38,23 @@ const App = () => {
   // 1559 total profiles; max allowed 100 per return
   const GetProfileData = async () => {
     try {
-      const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?apikey=2a451abc3d33d7be77c4ac254e5b663b
+      const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?orderBy=modified&limit=100&offset=0-1559&apikey=02daf835b7842ddd47b54d18e22ac585
       `)
       setPokeList(response.data.data.results)
-      console.log(response.data.data.results)
+      // .then(response.data.data.results.comics.items)
+      console.log(response.data.data.results)      
     } catch (error) {
       console.log(error)
     }
   }
-  
+
+  const Profiles = () => {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
 
 
   return (
@@ -62,7 +70,7 @@ const App = () => {
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
-          <Route path="profiles" element={<HeroVillian pokeList={pokeList} itemsPerPage={10} />} />
+          <Route path="profiles" element={<HeroVillian pokeList={pokeList} />} />
 
         </Routes>
         <br></br>
@@ -77,3 +85,6 @@ const App = () => {
 }
 
 export default App;
+
+
+// https://developer.marvel.com/documentation/images
