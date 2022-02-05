@@ -1,12 +1,14 @@
 import { useContext, useState } from 'react';
-import UserContext from '../../contexts/UserContext';
+// import UserContext from '../../contexts/UserContext';
+import Search from '../../components/Search';
 
-const ComicSearch = ( {comicBookList} ) => {
+const ComicSearch = ({ comicBookList }) => {
     const [currentComics, setCurrentComics] = useState([]);
 
     const Comics = () => {
         return (
-            <div>                
+            <div>
+                <Search />
                 {
                     comicBookList &&
                     comicBookList.map((comic) => (
@@ -30,14 +32,10 @@ const ComicSearch = ( {comicBookList} ) => {
         );
     }
 
-
-  
-    
-
     return (
         <div>
             <Comics currentComics={currentComics} />
-            
+            {/* <Button /> */}
         </div>
 
     );

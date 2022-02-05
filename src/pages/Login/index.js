@@ -21,11 +21,8 @@ const Login = ( {setUser} ) => {
         e.preventDefault()
         setUser(agentName)
         // Once logged in, redirect back to homepage
-        redirectHome('/')
-        
-    }
-
-    
+        redirectHome('/')        
+    }   
 
    
 

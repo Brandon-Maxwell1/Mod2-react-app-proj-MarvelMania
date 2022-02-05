@@ -4,27 +4,26 @@ import { useEffect, useState, useContext } from 'react';
 // import UserContext from '../../contexts/UserContext';
 // Component
 import Search from '../../components/Search';
+import Buttons from '../../components/Buttons';
 // import axios from 'axios';
 // CSS
 import './style.css'
 
 // key
-// pokeList = profileList
+// profileList = profileList
 // currentPokemon = currentProfile
 
-const HeroVillian = ({ pokeList, itemsPerPage }) => {
-    // console.log('props', pokeList)
-    const [currentItems, setCurrentItems] = useState([]);
-    const [pageCount, setPageCount] = useState(0);
-    const [itemOffset, setItemOffset] = useState(0);
-        
+const HeroVillian = ({ profileList, itemsPerPage }) => {
+    // console.log('props', profileList)
+    const [currentProfile, setCurrentProfile] = useState([]);
+
     const Profiles = () => {
         return (
             <div>
                 <Search />
                 {
-                    pokeList &&
-                    pokeList.map((profile) => (
+                    profileList &&
+                    profileList.map((profile) => (
                         <div>
                             <div className="profile-card">
                                 <h6>ID #{profile.id}</h6>
@@ -35,7 +34,7 @@ const HeroVillian = ({ pokeList, itemsPerPage }) => {
                                 <div className="card-body">
                                     <h5 className="card-title">{profile.name}</h5>
                                     <p className="card-text">{profile.description}</p>
-                                    <a href="#" className="btn btn-primary">View Profile</a>
+
                                 </div>
                             </div>
                         </div>
@@ -49,7 +48,7 @@ const HeroVillian = ({ pokeList, itemsPerPage }) => {
     // const nextClick = () => {                       
     //         // ternary
     //         // data === 'unliked' ? setData('liked') : setData('unliked')
-    
+
     //         // reg if/else
     //         if (like === 'unliked') {
     //             setLike('liked')
@@ -57,12 +56,12 @@ const HeroVillian = ({ pokeList, itemsPerPage }) => {
     //             setLike('unliked')
     //         }
     //     }
-    
+
 
     return (
         <div>
-            <Profiles currentItems={currentItems} />
-            
+            <Profiles currentProfile={currentProfile} />
+            <Buttons />
         </div>
 
     );
