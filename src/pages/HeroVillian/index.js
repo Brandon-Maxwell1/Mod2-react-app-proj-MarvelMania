@@ -17,17 +17,7 @@ const HeroVillian = ({ pokeList, itemsPerPage }) => {
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
-    
-
-
-    // useEffect(() => {
-    //     // Fetch pokeList from another resources.
-    //     const endOffset = itemOffset + itemsPerPage;
-    //     console.log(`Loading pokeList from ${itemOffset} to ${endOffset}`);
-    //     setCurrentItems(pokeList.slice(itemOffset, endOffset));
-    //     setPageCount(Math.ceil(length / itemsPerPage));
-    // }, [itemOffset, itemsPerPage]);
-
+        
     const Profiles = () => {
         return (
             <div>
@@ -72,11 +62,7 @@ const HeroVillian = ({ pokeList, itemsPerPage }) => {
     return (
         <div>
             <Profiles currentItems={currentItems} />
-            <div id="buttonDiv">
-                <div><button type="submit" className="btn btn-primary">Previous</button></div>
-                
-                <div><button type="submit" className="btn btn-primary">Next</button></div>
-            </div>
+            
         </div>
 
     );

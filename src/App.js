@@ -23,6 +23,7 @@ const App = () => {
   const [user, setUser] = useState('')
   const [comicBookList, setComicBookList] = useState([])
   const [pokeList, setPokeList] = useState([])
+  const [counter, setCounter] = useState(0)
 
   // Create useEffects for retrieving character data and comic book data
   // useEffect(() => {
@@ -31,6 +32,11 @@ const App = () => {
 
   useEffect(() => {
     GetProfileData();
+    GetComicData();
+  }, [counter])
+
+  useEffect(() => {    
+    GetComicData();
   }, [])
 
   // Create axios fetches for data from API
@@ -38,8 +44,7 @@ const App = () => {
   // 1559 total profiles; max allowed 100 per return
   const GetProfileData = async () => {
     try {
-      const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?orderBy=modified&limit=100&offset=0-1559&apikey=02daf835b7842ddd47b54d18e22ac585
-      `)
+      const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?orderBy=modified&limit=100&offset=${counter}&apikey=02daf835b7842ddd47b54d18e22ac585`)
       setPokeList(response.data.data.results)
       // .then(response.data.data.results.comics.items)
       console.log(response.data.data.results)      
@@ -48,10 +53,33 @@ const App = () => {
     }
   }
 
-  const Profiles = () => {
+  const GetComicData = async () => {
+    try {
+      const response = await axios.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=modified&format=comic&limit=100&offset=${counter}&apikey=02daf835b7842ddd47b54d18e22ac585`)
+      setComicBookList(response.data.data.results)      
+      console.log(response.data.data.results) 
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const nextClick = () => {
+    setCounter(counter + 100);
+  }
+
+  const previousClick = () => {
+    setCounter(counter - 100);
+  }
+  
+
+  const NextPreviousButton = () => {
         return (
             <div>
+              <div id="buttonDiv">
+                <div><button type="submit" className="btn btn-primary" onSubmit={previousClick}>Previous</button></div>
                 
+                <div><button type="submit" className="btn btn-primary" onSubmit={nextClick}>Next</button></div>
+            </div>                
             </div>
         );
     }
