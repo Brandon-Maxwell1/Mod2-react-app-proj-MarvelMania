@@ -60,6 +60,7 @@ const App = () => {
     }
   }
 
+  // Attempting to create counter that will reset the offset by +/- 100 when next or previous buttons are pressed respectively
   const clickNext = () => {
     setCounter(+100)
     // GetProfileData()

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Footer = () => {
+    // Creating some substanance for site. Pages for fans to link to that are related to Marvel
     return (
         <div>
             <nav className="navbar fixed-bottom navbar-light bg-light">

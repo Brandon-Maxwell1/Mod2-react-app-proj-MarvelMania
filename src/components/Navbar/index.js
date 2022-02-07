@@ -11,6 +11,7 @@ const Navbar = () => {
     return (
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            {/* Using userContext to greet the user("agents") name once they login */}
             {
                 !user ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${user}!`
             }
@@ -23,6 +24,7 @@ const Navbar = () => {
 
                 </div>
                 <button className="navbar-toggler" id="navToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    {/* Changed navbar dropdown to Punisher logo */}
                     <img src="https://rukminim1.flixcart.com/image/416/416/jn97frk0/art-craft-kit/m/c/g/comics-the-punisher-logo-3-carded-button-pinback-marvel-original-imaf9zygdpv5pw7u.jpeg?q=70" alt='' width={30} height={45} />Menu
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -34,6 +36,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <br></br>
+                        {/*Implementing useContext to enter in name and pseudo-password */}
                         {
                             !user ?
                                 <li className="nav-item">
@@ -42,6 +45,7 @@ const Navbar = () => {
                                         Login
                                     </Link>
                                 </li>
+                                // Sublinks within nav bar that become visible onces user logs in
                                 :
                                 <li>
                                     <li className="nav-item dropdown">
