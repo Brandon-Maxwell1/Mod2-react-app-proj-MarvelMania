@@ -8,9 +8,8 @@ import './style.css';
 const Navbar = () => {
     const user = useContext(UserContext)
     console.log('nav', user)
-    return (
-
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    return (        
+        <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav-container">
             {/* Using userContext to greet the user("agents") name once they login */}
             {
                 !user ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${user}!`
@@ -67,7 +66,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>        
     );
 }
 

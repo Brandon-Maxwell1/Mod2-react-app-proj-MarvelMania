@@ -55,7 +55,7 @@ const ComicSearch = ({ comicBookList }) => {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">{comic.title}</h5>
-                                    <p className="card-text">{comic.series.names}</p>
+                                    <p className="card-text">{comic.description}</p>
                                     {/* <a href="#" className="btn btn-primary">View Details</a> */}
                                 </div>
                             </div>
