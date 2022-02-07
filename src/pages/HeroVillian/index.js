@@ -1,29 +1,55 @@
 // Imports
 import { useEffect, useState, useContext } from 'react';
-// import ReactPaginate from 'react-paginate';
-// import UserContext from '../../contexts/UserContext';
 // Component
-import Search from '../../components/Search';
 import Buttons from '../../components/Buttons';
-// import axios from 'axios';
 // CSS
 import './style.css'
 
-// key
-// profileList = profileList
-// currentPokemon = currentProfile
-
-const HeroVillian = ({ profileList, itemsPerPage }) => {
+const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
     // console.log('props', profileList)
     const [currentProfile, setCurrentProfile] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('')    
 
-    const Profiles = () => {
+    const Search = () => {     
+    
+        const handleChange = (e) => {
+            // console.log('handling change', e.target.value)
+            setSearchTerm(e.target.value)
+        }
+    
+        const handleSubmit = e => {
+            e.preventDefault()
+        }    
+    
         return (
             <div>
-                <Search />
+                <form onSubmit={handleSubmit}>                
+                    <input
+                        type='text'
+                        placeholder='Search...'
+                        onChange={handleChange}
+                        value={searchTerm}
+                    />
+                    <input type="submit" value='Submit' />
+                </form>
+            </div>
+        );
+    }
+
+
+    const Profiles = () => {        
+    
+        return (
+            <div>    
                 {
                     profileList &&
-                    profileList.map((profile) => (
+                    profileList.filter((val) => {
+                        if (searchTerm == "") {
+                            return val
+                        } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                            return val
+                        }
+                    }).map((profile) => (
                         <div>
                             <div className="profile-card">
                                 <h6>ID #{profile.id}</h6>
@@ -33,8 +59,7 @@ const HeroVillian = ({ profileList, itemsPerPage }) => {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">{profile.name}</h5>
-                                    <p className="card-text">{profile.description}</p>
-
+                                    <p className="card-text">{profile.description}</p>                
                                 </div>
                             </div>
                         </div>
@@ -43,25 +68,12 @@ const HeroVillian = ({ profileList, itemsPerPage }) => {
             </div>
         );
     }
-
-
-    // const nextClick = () => {                       
-    //         // ternary
-    //         // data === 'unliked' ? setData('liked') : setData('unliked')
-
-    //         // reg if/else
-    //         if (like === 'unliked') {
-    //             setLike('liked')
-    //         } else {
-    //             setLike('unliked')
-    //         }
-    //     }
-
-
+  
     return (
         <div>
+            <Search />  
             <Profiles currentProfile={currentProfile} />
-            <Buttons />
+            <Buttons clickNext={clickNext} clickPrevious={clickPrevious} />
         </div>
 
     );

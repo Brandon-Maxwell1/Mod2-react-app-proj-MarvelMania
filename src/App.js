@@ -5,7 +5,6 @@ import axios from 'axios';
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-// import Search from './components/Search';
 // Pages
 import Headquarters from './pages/Headquarters';
 import Login from './pages/Login';
@@ -27,17 +26,15 @@ const App = () => {
   const [counter, setCounter] = useState(0);
 
   // Create useEffects for retrieving character data and comic book data
-  // useEffect(() => {
-  //   fetchComicBookData();
-  // }, [])
-
+ 
   useEffect(() => {
     GetProfileData();
-  }, [counter])
-
-  useEffect(() => {
-    GetComicData();
+    GetComicData()
   }, [])
+
+  // useEffect(() => {
+  //   GetComicData();
+  // }, [])
 
   // Create axios fetches for data from API
   // Base API endpoint = http(s)://gateway.marvel.com/
@@ -64,13 +61,14 @@ const App = () => {
   }
 
   const clickNext = () => {
-    setCounter(counter + 100)
-    GetProfileData()
+    setCounter(+100)
+    // GetProfileData()
+    console.log(counter)
   }
 
   const clickPrevious = () => {
-    setCounter(counter - 100)
-    GetProfileData()
+    setCounter(-100)
+    // GetProfileData()
   } 
 
   return (
