@@ -11,19 +11,17 @@ const ComicSearch = ({ comicBookList }) => {
 
     // Creating search function for comics("archives")
     // Need to figure out why is making me click back into input after every letter
-    const Search2 = () => {
+    const handleChange = (e) => {
+        // console.log('handling change', e.target.value)
+        setSearchTerm(e.target.value);
+    };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
 
-        const handleChange = (e) => {
-            // console.log('handling change', e.target.value)
-            setSearchTerm(e.target.value)
-        }
-
-        const handleSubmit = e => {
-            e.preventDefault()
-        }
-
-        return (
+    return (
+        <main>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input
@@ -35,11 +33,7 @@ const ComicSearch = ({ comicBookList }) => {
                     <input type="submit" value='Submit' />
                 </form>
             </div>
-        );
-    }
-
-    const Comics = () => {
-        return (
+ 
             <div id="comic-container">
                 {/* Logic for the search is to filter.  If/then allows data to be mapped and appear if nothin is typed into field*/}
                 {
@@ -69,20 +63,21 @@ const ComicSearch = ({ comicBookList }) => {
                     ))
                 }
             </div>
+            <Buttons />
+            </main>
         );
     }
 
-    return (
+    {/* return (
         <div>
             <Search2 />
             
             <div id="comicDiv">
             <Comics currentComics={currentComics} />                     
             </div>
-            <Buttons />
         </div>
 
     );
-}
+} */}
 
 export default ComicSearch;
