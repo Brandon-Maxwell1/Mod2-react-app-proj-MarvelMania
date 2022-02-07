@@ -1,10 +1,10 @@
-#profile-container{
+#comic-container{
     display: flex;
     flex-wrap: wrap;    
     }
 
-.profile-card{
-    display: flex;
+.comic-card{
+    display: flex;    
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
@@ -21,7 +21,7 @@
     color: ghostwhite;   
 }
 
-.card-img{
+#card-img{
     width: auto;
 }
 
@@ -36,4 +36,9 @@ div > h6{
 #buttonDiv{
     display: flex;
     flex-direction: row;
+}
+
+#comicDiv{
+    display: flex;
+    flex-direction: column;
 }

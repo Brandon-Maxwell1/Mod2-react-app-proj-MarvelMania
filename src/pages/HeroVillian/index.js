@@ -32,17 +32,16 @@ const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
                         onChange={handleChange}
                         value={searchTerm}
                     />
-                    <input type="submit" value='Submit' />
+                    <button type="submit" value='Submit' onClick={(handleSubmit)}>Submit</button>
                 </form>
             </div>
         );
     }
 
-
     const Profiles = () => {
 
         return (
-            <div>
+            <div id="profile-container">
                 {/*Logic for the search is to filter.  If/then allows data to be mapped and appear if nothin is typed into field*/}
                 {
                     profileList &&

@@ -2,6 +2,8 @@
 import { useContext, useState } from 'react';
 // Components
 import Buttons from '../../components/Buttons';
+// CSS
+import './style.css';
 
 const ComicSearch = ({ comicBookList }) => {
     const [currentComics, setCurrentComics] = useState([]);
@@ -38,7 +40,7 @@ const ComicSearch = ({ comicBookList }) => {
 
     const Comics = () => {
         return (
-            <div>
+            <div id="comic-container">
                 {/* Logic for the search is to filter.  If/then allows data to be mapped and appear if nothin is typed into field*/}
                 {
                     comicBookList &&
@@ -50,11 +52,11 @@ const ComicSearch = ({ comicBookList }) => {
                         }
                     }).map((comic) => (
                         <div>
-                            <div className="profile-card">
+                            <div className="comic-card">
                                 <h6>ID #{comic.id}</h6>
                                 {/* Used a YouTube video that is no longer uploaded for viewing to help figure out how to render images from this very difficult Marvel API */}
                                 <img
-                                    src={`${comic.thumbnail.path}/portrait_incredible.jpg`} className="card-img"
+                                    src={`${comic.thumbnail.path}/portrait_incredible.jpg`} id="card-img"
                                     alt="Character Image"
                                 />
                                 <div className="card-body">
@@ -73,7 +75,10 @@ const ComicSearch = ({ comicBookList }) => {
     return (
         <div>
             <Search2 />
-            <Comics currentComics={currentComics} />
+            
+            <div id="comicDiv">
+            <Comics currentComics={currentComics} />                     
+            </div>
             <Buttons />
         </div>
 
