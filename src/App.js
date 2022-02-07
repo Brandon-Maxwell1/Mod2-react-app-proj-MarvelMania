@@ -22,8 +22,7 @@ const App = () => {
   const [user, setUser] = useState('')
   const [comicBookList, setComicBookList] = useState([])
   const [profileList, setProfileList] = useState([])
-  // const [counter, setCounter] = useState(0)
-  const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(0);
 
   // Create useEffects for retrieving character data and comic book data
  
