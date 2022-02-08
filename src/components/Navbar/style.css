@@ -5,3 +5,8 @@
 #navToggle{
     color: #0b385e;
 }
+
+#navbarNav{
+    display: grid;
+    justify-content: space-between;
+}

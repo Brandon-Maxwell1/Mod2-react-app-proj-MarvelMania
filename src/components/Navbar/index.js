@@ -27,21 +27,22 @@ const Navbar = () => {
                     <img src="https://rukminim1.flixcart.com/image/416/416/jn97frk0/art-craft-kit/m/c/g/comics-the-punisher-logo-3-carded-button-pinback-marvel-original-imaf9zygdpv5pw7u.jpeg?q=70" alt='' width={30} height={45} />Menu
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav" id="navbarNav">
                         <li className="nav-item">
                             <Link to="contact">
                                 <img src="https://static3.srcdn.com/wordpress/wp-content/uploads/2022/01/Andrew-Garfield-Amazing-Spider-Man-2-phone.jpg" alt='Contact Us' width={80} height={45} />
-                                <h5>Contact Us</h5>
+                                <h6>Contact Us </h6>
                             </Link>
                         </li>
-                        <br></br>
+                        <div></div>
+                        
                         {/*Implementing useContext to enter in name and pseudo-password */}
                         {
-                            !user ?
+                            !user ?                            
                                 <li className="nav-item">
                                     <Link to="login">
                                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh65ZQIeEqVpP-G2EEIXd7h7fxXQZoQIBYNw&usqp=CAU" alt="Login" width={80} height={45} />
-                                        <h5>Login</h5>
+                                        <h6>Login</h6>
                                     </Link>
                                 </li>
                                 // Sublinks within nav bar that become visible onces user logs in
