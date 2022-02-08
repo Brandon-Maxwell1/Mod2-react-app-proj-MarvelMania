@@ -18,7 +18,7 @@ const Navbar = () => {
 
                 <div id="navBarHomeCss">
                     <Link className="nav-link" to="/">
-                        <img src="https://assets3.thrillist.com/v1/image/737136/828x610/flatten;crop;webp=auto;jpeg_quality=70" alt='Marvel Headquarters' width={130} height={65} /> Home
+                        <img src="https://assets3.thrillist.com/v1/image/737136/828x610/flatten;crop;webp=auto;jpeg_quality=70" alt='Marvel Headquarters' width={130} height={65} /> <h3>Home</h3>
                     </Link>
 
                 </div>
@@ -31,7 +31,7 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to="contact">
                                 <img src="https://static3.srcdn.com/wordpress/wp-content/uploads/2022/01/Andrew-Garfield-Amazing-Spider-Man-2-phone.jpg" alt='Contact Us' width={80} height={45} />
-                                Contact Us
+                                <h5>Contact Us</h5>
                             </Link>
                         </li>
                         <br></br>
@@ -41,7 +41,7 @@ const Navbar = () => {
                                 <li className="nav-item">
                                     <Link to="login">
                                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh65ZQIeEqVpP-G2EEIXd7h7fxXQZoQIBYNw&usqp=CAU" alt="Login" width={80} height={45} />
-                                        Login
+                                        <h5>Login</h5>
                                     </Link>
                                 </li>
                                 // Sublinks within nav bar that become visible onces user logs in
