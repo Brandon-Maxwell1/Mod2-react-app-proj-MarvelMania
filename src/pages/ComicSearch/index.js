@@ -8,7 +8,7 @@ import './style.css';
 const ComicSearch = ({ comicBookList }) => {
     const [currentComics, setCurrentComics] = useState([]);
     const [searchTerm, setSearchTerm] = useState('')
-
+    // Courtesy of Malik I was able to get search to allow me to enter in data by removing functions and letting them all fall under this main component
     // Creating search function for comics("archives")
     // Need to figure out why is making me click back into input after every letter
     const handleChange = (e) => {
@@ -33,7 +33,7 @@ const ComicSearch = ({ comicBookList }) => {
                     <input type="submit" value='Submit' />
                 </form>
             </div>
- 
+
             <div id="comic-container">
                 {/* Logic for the search is to filter.  If/then allows data to be mapped and appear if nothin is typed into field*/}
                 {
@@ -64,11 +64,11 @@ const ComicSearch = ({ comicBookList }) => {
                 }
             </div>
             <Buttons />
-            </main>
-        );
-    }
+        </main>
+    );
+}
 
-    {/* return (
+{/* return (
         <div>
             <Search2 />
             

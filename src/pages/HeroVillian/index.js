@@ -9,7 +9,7 @@ const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
     // console.log('props', profileList)
     const [currentProfile, setCurrentProfile] = useState([]);
     const [searchTerm, setSearchTerm] = useState('')
-
+    // Courtesy of Malik I was able to get search to allow me to enter in data by removing functions and letting them all fall under this main component
     // Creating search function for comics("archives")
     // Need to figure out why is making me click back into input after every letter
     const handleChange = (e) => {
