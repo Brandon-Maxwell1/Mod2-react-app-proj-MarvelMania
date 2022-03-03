@@ -47,8 +47,10 @@ const Login = ({ setUser }) => {
                 <div className="mb-3 form-check">
 
                     {/* Added a title feature to show message when hovering over "CLEARANCE LEVEL 7"...just another little easter egg */}
+                    <br></br>
                     <input type="checkbox" className="form-check-input" id="updateClearance" />
-                    <label className="form-check-label" htmlFor="updateClearance" title="To comply with the Geneva Convention, please confirm you have Clearance Level 7 access.">CLEARANCE LEVEL 7</label>
+                    
+                    <label className="form-check-label" htmlFor="updateClearance" title="To comply with the Sokovia Accords, confirm you'r Clearance Level 7.">CLEARANCE LEVEL 7</label>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

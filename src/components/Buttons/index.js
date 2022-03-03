@@ -3,7 +3,7 @@ import { useState } from 'react';
 const Buttons = ({ clickNext, clickPrevious }) => {
     console.log(clickNext)
     return (
-        <div>
+        <div id="buttonDiv">
             <div>
                 <button
                     type="submit"

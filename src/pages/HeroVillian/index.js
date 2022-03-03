@@ -1,9 +1,11 @@
 // Imports
 import { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 // Component
 import Buttons from '../../components/Buttons';
 // CSS
 import './style.css'
+
 
 const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
     // console.log('props', profileList)
@@ -33,6 +35,18 @@ const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
                 />
                 <input type="submit" value="Submit" />
             </form>
+            <Buttons />
+            <br></br>
+            <div>
+            <p>
+              <Link to="/create">
+                <button color="white" className="is-rounded">
+                  <span>Add Character Profile</span>
+                </button>
+              </Link>
+            </p>
+          </div>
+
         </div>
 
         <div id="profile-container">
@@ -63,7 +77,7 @@ const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
                 ))
             }
         </div>
-        <Buttons />
+        
         </main>
     );
 }

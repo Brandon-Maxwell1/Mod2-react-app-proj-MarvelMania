@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import ContactMore from './pages/ContactMore';
 import ComicSearch from './pages/ComicSearch';
 import HeroVillian from './pages/HeroVillian';
+import CreateCharacter from './pages/CreateCharacter';
 // Contexts
 import UserContext from './contexts/UserContext';
 // CSS
@@ -19,21 +20,19 @@ import './App.css';
 const App = () => {
 
   // Create constiables for the state here:
-  const [user, setUser] = useState('')
-  const [comicBookList, setComicBookList] = useState([])
-  const [profileList, setProfileList] = useState([])
-    const [counter, setCounter] = useState(0);
+  const [user, setUser] = useState('');
+  const [comicBookList, setComicBookList] = useState([]);
+  const [profileList, setProfileList] = useState([]);
+  const [counter, setCounter] = useState(0);
+  const [createdProfile, setCreatedProfile] = useState([]);
 
   // Create useEffects for retrieving character data and comic book data
  
   useEffect(() => {
     GetProfileData();
-    GetComicData()
-  }, [])
-
-  // useEffect(() => {
-  //   GetComicData();
-  // }, [])
+    GetComicData();
+    getCreatedProfile();
+  }, [counter])
 
   // Create axios fetches for data from API
   // Base API endpoint = http(s)://gateway.marvel.com/
@@ -61,15 +60,25 @@ const App = () => {
 
   // Attempting to create counter that will reset the offset by +/- 100 when next or previous buttons are pressed respectively
   const clickNext = () => {
-    setCounter(+100)
-    // GetProfileData()
+    setCounter(counter +100)
+    GetProfileData()
     console.log(counter)
   }
-
+  
   const clickPrevious = () => {
-    setCounter(-100)
-    // GetProfileData()
+    setCounter(counter -100)
+    GetProfileData()
   } 
+  
+  const getCreatedProfile = async () => {
+    try{
+      const response = await axios.get("http://localhost:8080/api/v1/allprofiles")
+      // setCreatedProfile(resposne.data)
+      console.log(response)
+    } catch (error) {      
+      console.log(error)
+    }
+  }
 
   return (
     <div>
@@ -85,6 +94,7 @@ const App = () => {
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
           <Route path="profiles" element={<HeroVillian profileList={profileList} clickNext={clickNext} clickPrevious={clickPrevious}/>} />
+          <Route path="/create" element={<CreateCharacter />} />
 
         </Routes>
         <br></br>
