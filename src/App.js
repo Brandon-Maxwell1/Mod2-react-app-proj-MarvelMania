@@ -12,6 +12,7 @@ import ContactMore from './pages/ContactMore';
 import ComicSearch from './pages/ComicSearch';
 import HeroVillian from './pages/HeroVillian';
 import CreateCharacter from './pages/CreateCharacter';
+import NewUserLogin from './pages/NewUserLogin';
 // Contexts
 import UserContext from './contexts/UserContext';
 // CSS
@@ -32,7 +33,7 @@ const App = () => {
     GetProfileData();
     GetComicData();
     getCreatedProfile();
-  }, [counter])
+  }, [])
 
   // Create axios fetches for data from API
   // Base API endpoint = http(s)://gateway.marvel.com/
@@ -73,7 +74,7 @@ const App = () => {
   const getCreatedProfile = async () => {
     try{
       const response = await axios.get("http://localhost:8080/api/v1/allprofiles")
-      // setCreatedProfile(resposne.data)
+      setCreatedProfile(response.data)
       console.log(response)
     } catch (error) {      
       console.log(error)
@@ -94,7 +95,8 @@ const App = () => {
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
           <Route path="profiles" element={<HeroVillian profileList={profileList} clickNext={clickNext} clickPrevious={clickPrevious}/>} />
-          <Route path="/create" element={<CreateCharacter />} />
+          <Route path="/create" element={<CreateCharacter createdProfile={createdProfile} />} />
+          <Route path="/newUser" element={<NewUserLogin />} />
 
         </Routes>
         <br></br>
