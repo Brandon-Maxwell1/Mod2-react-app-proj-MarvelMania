@@ -1,6 +1,9 @@
 import React from 'react';
+import NoImage from '../../images/No_Image.PNG';
 
-const CreateCharacter = ( {createdProfile} ) => {
+const CreateCharacter = ({ createdProfile }) => {
+
+    
 
     return (
         <div>
@@ -38,26 +41,26 @@ const CreateCharacter = ( {createdProfile} ) => {
             </form>
 
             <div id="profile-container">
-                {           
-                createdProfile &&
-                createdProfile.map((newProfile) => (
-                    <div>
-                        <div className="profile-card">
-                            <h6>ID #{newProfile.id}</h6>  
-                            <img src={`${newProfile.thumbnailpath}/portrait_incredible.jpg`} className="card-img"
-                                alt="Character Image"
-                            />
-                        }
-                            <div className="card-body">
-                                <h5 className="card-title">{newProfile.name}</h5>
-                                <p className="card-text">{newProfile.description}</p>
+                {
+                    createdProfile &&
+                    createdProfile.map((newProfile) => (
+                        <div>
+                            <div className="profile-card">
+                                <h6>ID #{newProfile.id+2001000}
+                                </h6>                                
+                                <img src={newProfile.thumbnailpath ? newProfile.thumbnailpath : NoImage} className="card-img"
+                                    alt="Character Image" />
+
+                                <div className="card-body">
+                                    <h5 className="card-title">{newProfile.name}</h5>
+                                    <p className="card-text">{newProfile.description}</p>           
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))
-            }
-        </div>
-            
+                    ))
+                }
+            </div>
+
         </div>
     );
 }

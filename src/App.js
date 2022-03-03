@@ -75,7 +75,7 @@ const App = () => {
     try{
       const response = await axios.get("http://localhost:8080/api/v1/allprofiles")
       setCreatedProfile(response.data)
-      console.log(response)
+      console.log(response.data.thumbnailpath)
     } catch (error) {      
       console.log(error)
     }
