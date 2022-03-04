@@ -26,6 +26,7 @@ const App = () => {
   const [profileList, setProfileList] = useState([]);
   const [counter, setCounter] = useState(0);
   const [createdProfile, setCreatedProfile] = useState([]);
+  const [userName, setUserName] = useState([]);
 
   // Create useEffects for retrieving character data and comic book data
  
@@ -75,12 +76,23 @@ const App = () => {
     try{
       const response = await axios.get("http://localhost:8080/api/v1/allprofiles")
       setCreatedProfile(response.data)
-      console.log(response.data.thumbnailpath)
+      console.log(response.data)
     } catch (error) {      
       console.log(error)
     }
   }
 
+  const deleteProfile = async (id) => {
+    try {
+      const response = await axios.delete(`http://localhost:8080/api/v1/profile/${id}`)
+    } catch(error){
+      console.log(error)
+    }
+  }
+    
+
+
+  
   return (
     <div>
       {/* Creating routes for different pages found in Nav bar */}

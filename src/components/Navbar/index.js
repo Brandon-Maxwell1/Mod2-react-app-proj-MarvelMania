@@ -11,7 +11,7 @@ const Navbar = () => {
     return (        
         <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav-container">
             {/* Using userContext to greet the user("agents") name once they login */}
-            {
+            {                
                 !user ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${user}!`
             }
             <div className="container-fluid">
