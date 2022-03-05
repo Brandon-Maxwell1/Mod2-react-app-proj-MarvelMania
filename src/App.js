@@ -24,16 +24,16 @@ const App = () => {
   const [user, setUser] = useState('');
   const [comicBookList, setComicBookList] = useState([]);
   const [profileList, setProfileList] = useState([]);
-  const [counter, setCounter] = useState(0);
-  const [createdProfile, setCreatedProfile] = useState([]);
+  const [counter, setCounter] = useState(0);  
   const [userName, setUserName] = useState([]);
+  const [verifiedLogins, setVerifiedLogins] = useState([]);
 
   // Create useEffects for retrieving character data and comic book data
  
   useEffect(() => {
     GetProfileData();
-    GetComicData();
-    getCreatedProfile();
+    GetComicData();    
+    VerifiedLogins();
   }, [])
 
   // Create axios fetches for data from API
@@ -61,38 +61,29 @@ const App = () => {
   }
 
   // Attempting to create counter that will reset the offset by +/- 100 when next or previous buttons are pressed respectively
-  const clickNext = () => {
-    setCounter(counter +100)
-    GetProfileData()
-    console.log(counter)
-  }
+  // const clickNext = () => {
+  //   setCounter(counter +100)
+  //   GetProfileData()
+  //   console.log(counter)
+  // }
   
-  const clickPrevious = () => {
-    setCounter(counter -100)
-    GetProfileData()
-  } 
+  // const clickPrevious = () => {
+  //   setCounter(counter -100)
+  //   GetProfileData()
+  // } 
   
-  const getCreatedProfile = async () => {
+  
+  const VerifiedLogins = async () => {
     try{
-      const response = await axios.get("http://localhost:8080/api/v1/allprofiles")
-      setCreatedProfile(response.data)
+      const response = await axios.get("http://localhost:8080/api/v1/allusers")
+      setVerifiedLogins(response.data)
       console.log(response.data)
-    } catch (error) {      
+    } catch(error) {
       console.log(error)
     }
   }
 
-  const deleteProfile = async (id) => {
-    try {
-      const response = await axios.delete(`http://localhost:8080/api/v1/profile/${id}`)
-    } catch(error){
-      console.log(error)
-    }
-  }
     
-
-
-  
   return (
     <div>
       {/* Creating routes for different pages found in Nav bar */}
@@ -106,8 +97,8 @@ const App = () => {
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />
-          <Route path="profiles" element={<HeroVillian profileList={profileList} clickNext={clickNext} clickPrevious={clickPrevious}/>} />
-          <Route path="/create" element={<CreateCharacter createdProfile={createdProfile} />} />
+          <Route path="profiles" element={<HeroVillian profileList={profileList} />} />
+          <Route path="/create" element={<CreateCharacter />} />
           <Route path="/newUser" element={<NewUserLogin />} />
 
         </Routes>

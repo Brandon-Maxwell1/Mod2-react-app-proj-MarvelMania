@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -10,23 +9,17 @@ const Login = ({ setUser }) => {
     const [agentName, setAgentName] = useState('');
     const redirectHome = useNavigate();
 
-
     // create handles for for login form
     const changeAgentName = e => {
         setAgentName(e.target.value)
+
     }
 
-    const submitAgentName = async (e) => {
+    const submitAgentName = e => {
         e.preventDefault()
-        try {
-            const response = await axios.get(`http://localhost:8080/api/v1/allusers/${username}`)    
-        } catch (error) {
-            console.log(error)
-        }
         setUser(agentName)
-        redirectHome('/')
         // Once logged in, redirect back to homepage
-
+        redirectHome('/')
     }
 
     // console.log('props', setUserName)
@@ -51,11 +44,11 @@ const Login = ({ setUser }) => {
                 <br></br>
                 <div className="mb-3" className="dataEntryField">
                     <label htmlFor="updateInputPassword1" className="form-label">Encryption Key:</label>
-                    <input
-                        placeholder='Enter Password...'
-                        type="password"
-                        className="form-control"
-                        id="updateInputPassword1" />
+                    <input 
+                    placeholder='Enter Password...'
+                    type="password" 
+                    className="form-control" 
+                    id="updateInputPassword1" />
                 </div>
                 <div className="mb-3 form-check">
 
@@ -67,10 +60,10 @@ const Login = ({ setUser }) => {
                 </div>
                 <button type="submit" className="btn btn-primary">Access</button>
                 <br></br>
-                <Link to="/newUser">
-                    <button type="submit" className="btn btn-primary">New Agent</button>
-                </Link>
-            </form>
+                <Link to="/newUser">               
+                <button type="submit" className="btn btn-primary">New Agent</button>
+                </Link> 
+            </form>            
         </div>
     );
 }
