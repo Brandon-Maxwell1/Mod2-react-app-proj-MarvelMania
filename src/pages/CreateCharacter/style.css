@@ -5,4 +5,18 @@
 #iconDiv{
     display: flex;
     justify-content: flex-end;
+    
+}
+
+#cardBodyDiv{
+    display: flex;
+    flex-direction: column;    
+}
+
+#descriptionEntry{
+    width: 50%;
+}
+
+#formFilemd{
+    width: 45%;
 }

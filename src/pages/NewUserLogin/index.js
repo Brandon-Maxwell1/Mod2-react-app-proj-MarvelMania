@@ -26,6 +26,8 @@ const NewUserLogin = () => {
         }
         redirectToLogin('/login')
     }
+
+    
     return (
 
         <div>

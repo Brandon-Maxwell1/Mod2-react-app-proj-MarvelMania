@@ -60,19 +60,6 @@ const App = () => {
     }
   }
 
-  // Attempting to create counter that will reset the offset by +/- 100 when next or previous buttons are pressed respectively
-  // const clickNext = () => {
-  //   setCounter(counter +100)
-  //   GetProfileData()
-  //   console.log(counter)
-  // }
-  
-  // const clickPrevious = () => {
-  //   setCounter(counter -100)
-  //   GetProfileData()
-  // } 
-  
-  
   const VerifiedLogins = async () => {
     try{
       const response = await axios.get("http://localhost:8080/api/v1/allusers")
@@ -83,6 +70,17 @@ const App = () => {
     }
   }
 
+  // Attempting to create counter that will reset the offset by +/- 100 when next or previous buttons are pressed respectively
+  // const clickNext = () => {
+  //   setCounter(counter +100)
+  //   GetProfileData()
+  //   console.log(counter)
+  // }
+  
+  // const clickPrevious = () => {
+  //   setCounter(counter -100)
+  //   GetProfileData()
+  // }  
     
   return (
     <div>
@@ -93,7 +91,7 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Headquarters />} />
-          <Route path="login" element={<Login setUser={setUser} />} />
+          <Route path="login" element={<Login setUser={setUser} VerifiedLogins={VerifiedLogins} />} />
           <Route path="contact" element={<ContactMore />} />
           <Route path="comic" element={<ComicSearch comicBookList={comicBookList}
           />} />

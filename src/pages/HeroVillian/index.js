@@ -7,7 +7,7 @@ import Buttons from '../../components/Buttons';
 import './style.css'
 
 
-const HeroVillian = ({ profileList, clickNext, clickPrevious }) => {
+const HeroVillian = ({ profileList }) => {
     // console.log('props', profileList)
     const [currentProfile, setCurrentProfile] = useState([]);
     const [searchTerm, setSearchTerm] = useState('')

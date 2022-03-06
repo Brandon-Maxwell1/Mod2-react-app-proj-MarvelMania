@@ -22,7 +22,7 @@ const Login = ({ setUser }) => {
         redirectHome('/')
     }
 
-    // console.log('props', setUserName)
+    // window.alert("Not a Valid Agent")
 
     return (
         <div className="loginPage" id="bgDiv">
