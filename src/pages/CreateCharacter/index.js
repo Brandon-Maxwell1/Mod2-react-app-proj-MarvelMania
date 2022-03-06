@@ -11,6 +11,8 @@ const CreateCharacter = () => {
     // const refreshPage = useNavigate();
 
     const [createdProfile, setCreatedProfile] = useState([]);
+    const [editProfile, setEditProfile] = useState(false);
+    const [profileEdited, setProfileEdited] = useState({});
 
     useEffect(() => {
         GetCreatedProfile();
@@ -44,7 +46,11 @@ const CreateCharacter = () => {
     return (
         <div>
             <br></br>
-            <Form GetCreatedProfile={GetCreatedProfile}/>
+            <Form 
+            GetCreatedProfile={GetCreatedProfile} 
+            editProfile={editProfile}
+            profileEdited={profileEdited}
+            />
 
             <div id="profile-container">
                 {

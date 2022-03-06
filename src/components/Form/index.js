@@ -3,13 +3,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Form = ( {GetCreatedProfile} ) => {
+const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
+
+    console.log('profileEdited', profileEdited)
 
     const [profileName, setProfileName] = useState('');
     const [profileDescription, setProfileDescription] = useState('');
     const [profileImage, setProfileImage] = useState('');
-    const [profileEdited, setProfileEdited] = useState({});
-    const [editProfile, setEditProfile] = useState(false);
+
+
 
     const refreshPage = useNavigate();
 
@@ -22,14 +24,18 @@ const Form = ( {GetCreatedProfile} ) => {
         }
         try {
             if (editProfile) {
-                const response = await axios.post("http://localhost:8080/api/v1/addprofile", profileNew)
+                const response = await axios.put(`http://localhost:8080/api/v1/profile/${profileEdited.id}`, profileNew)
+                GetCreatedProfile()
+                refreshPage('/create')
+                window.alert(`Successfully Update ${profileEdited.name} Profile`)
             } else {
                 const response = await axios.post("http://localhost:8080/api/v1/addprofile", profileNew)
-                
+
                 if (response.status === 200) {
                     setProfileName('')
                     setProfileDescription('')
                     setProfileImage('')
+                    window.alert("Successfully Added New Profile")
                 }
             }
             GetCreatedProfile()
@@ -39,18 +45,18 @@ const Form = ( {GetCreatedProfile} ) => {
         }
     }
 
-   
+
 
     return (
-        <form onSubmit={handleSubmit} editProfile={editProfile} profileEdited={profileEdited}>
+        <form onSubmit={handleSubmit} >
             <div className="mb-3" className="dataEntryField">
                 <label htmlFor="updateInputName1" className="form-label">Profile Name:</label>
                 <input
-                    placeholder='Enter Profile Name...'
                     type="text"
                     className="form-control"
                     id="updateInputName1"
                     aria-describedby="nameHelp"
+                    placeholder={editProfile ? profileEdited.name : 'Enter Profile Name...'}
                     value={profileName}
                     onChange={e => setProfileName(e.target.value)}
                 />
@@ -62,7 +68,7 @@ const Form = ( {GetCreatedProfile} ) => {
                 <textarea
                     className="form-control"
                     rows="3"
-                    placeholder='Enter Origin Story...'
+                    placeholder={editProfile ? profileEdited.description : 'Enter Origin Story...'}
                     value={profileDescription}
                     onChange={e => setProfileDescription(e.target.value)}
                 >
