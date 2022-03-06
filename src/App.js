@@ -5,6 +5,7 @@ import axios from 'axios';
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Form from './components/Form';
 // Pages
 import Headquarters from './pages/Headquarters';
 import Login from './pages/Login';

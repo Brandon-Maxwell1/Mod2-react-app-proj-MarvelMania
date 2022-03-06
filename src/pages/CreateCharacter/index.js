@@ -3,7 +3,8 @@ import NoImage from '../../images/No_Image.PNG';
 import './style.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import Form from '../../components/Form';
+
 
 const CreateCharacter = () => {
 
@@ -13,7 +14,7 @@ const CreateCharacter = () => {
 
     useEffect(() => {
         GetCreatedProfile();
-    }, [])
+    }, [])    
 
     const GetCreatedProfile = async () => {
         try {
@@ -34,41 +35,16 @@ const CreateCharacter = () => {
         }
     }
 
+    const handleEdit = (newProfile) => {
+        setEditProfile(true)
+        setProfileEdited(newProfile)
+    }
+
+
     return (
         <div>
             <br></br>
-            <form>
-                <div className="mb-3" className="dataEntryField">
-                    <label htmlFor="updateInputName1" className="form-label">Profile Name:</label>
-                    <input
-                        placeholder='Enter Profile Name...'
-                        type="text"
-                        className="form-control"
-                        id="updateInputName1"
-                        aria-describedby="nameHelp"
-                    // value=""
-                    // onChange=""
-                    />
-                    <div id="nameHelp" className="form-text"></div>
-                </div>
-                <br></br>
-                <div className="mb-3" id="descriptionEntry">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label" id="description-field">Description:</label>
-                    <textarea 
-                    class="form-control"                      
-                    rows="3"
-                    placeholder='Enter Origin Story...'>                    
-                    </textarea>                                   
-                </div>
-                
-                <div>
-                    <label htmlFor="formFileLg" className="form-label">Upload Your Hero / Villain Image</label>
-                    <input className="form-control form-control-md" id="formFilemd" type="file" />
-                </div>
-
-                <br></br>
-                <button type="submit">Create</button>
-            </form>
+            <Form GetCreatedProfile={GetCreatedProfile}/>
 
             <div id="profile-container">
                 {
@@ -92,10 +68,10 @@ const CreateCharacter = () => {
                                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewIayhIZTUcfaXzG_cV0vPncxMbPYWhQrVpOCiwodpvObUmnLQP-4WgkucCRSgKRcVJU&usqp=CAU"
                                                     width={35}
                                                     height={40}
-                                                    onClick={() => DeleteProfile(newProfile.id)}
+                                                    onClick={() => handleEdit(newProfile)}
                                                 />
                                             </button>
-                                            
+
                                             <button className='buttonCSS'>
                                                 <img src="https://png.pngtree.com/png-vector/20190726/ourmid/pngtree-recycle-bin-icon-for-your-project-png-image_1600015.jpg"
                                                     width={35}

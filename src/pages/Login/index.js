@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './style.css';
 
 const Login = ({ setUser }) => {
@@ -15,14 +16,29 @@ const Login = ({ setUser }) => {
 
     }
 
-    const submitAgentName = e => {
+    const submitAgentName = async (e) => {
         e.preventDefault()
-        setUser(agentName)
-        // Once logged in, redirect back to homepage
-        redirectHome('/')
+
+        try {
+            const response = await axios.get(`http://localhost:8080/api/v1/allusers`, agentName)
+            // /${username}
+
+            if(response.status === 200) {
+                setUser(agentName)
+                // Once logged in, redirect back to homepage
+                redirectHome('/')
+
+            } else{
+                window.alert("Not a Valid Agent")
+            }
+
+        } catch (error) {
+            console.log(error)
+            
+        }
+
     }
 
-    // window.alert("Not a Valid Agent")
 
     return (
         <div className="loginPage" id="bgDiv">
@@ -44,11 +60,11 @@ const Login = ({ setUser }) => {
                 <br></br>
                 <div className="mb-3" className="dataEntryField">
                     <label htmlFor="updateInputPassword1" className="form-label">Encryption Key:</label>
-                    <input 
-                    placeholder='Enter Password...'
-                    type="password" 
-                    className="form-control" 
-                    id="updateInputPassword1" />
+                    <input
+                        placeholder='Enter Password...'
+                        type="password"
+                        className="form-control"
+                        id="updateInputPassword1" />
                 </div>
                 <div className="mb-3 form-check">
 
@@ -60,10 +76,10 @@ const Login = ({ setUser }) => {
                 </div>
                 <button type="submit" className="btn btn-primary">Access</button>
                 <br></br>
-                <Link to="/newUser">               
-                <button type="submit" className="btn btn-primary">New Agent</button>
-                </Link> 
-            </form>            
+                <Link to="/newUser">
+                    <button type="submit" className="btn btn-primary">New Agent</button>
+                </Link>
+            </form>
         </div>
     );
 }
