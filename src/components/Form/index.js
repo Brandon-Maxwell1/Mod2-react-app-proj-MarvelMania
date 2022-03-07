@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
 
@@ -10,7 +11,6 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
     const [profileName, setProfileName] = useState('');
     const [profileDescription, setProfileDescription] = useState('');
     const [profileImage, setProfileImage] = useState('');
-
 
 
     const refreshPage = useNavigate();
@@ -35,7 +35,7 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
                     setProfileName('')
                     setProfileDescription('')
                     setProfileImage('')
-                    window.alert("Successfully Added New Profile")
+                    window.alert(`Successfully Added ${profileNew.name}`)
                 }
             }
             GetCreatedProfile()
@@ -44,7 +44,6 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
             console.log(error)
         }
     }
-
 
 
     return (
@@ -81,15 +80,21 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
                     className="form-control form-control-md"
                     id="formFilemd"
                     type="file"
-                    value={profileImage}
+                    // value={profileImage}
                     onChange={e => setProfileImage(e.target.files[0])}
                 />
             </div>
 
             <br></br>
-            <button type="submit">
-                {editProfile ? "Edit Profile" : "Create Profile"}
-            </button>
+            <div>
+                <button type="submit">
+                    {editProfile ? "Edit Profile" : "Create Profile"}
+                </button>
+                <button id="cancelEdit" type="submit">
+                    {editProfile ? "Cancel Edit" : ""}
+                </button>
+            </div>
+
         </form>
     );
 }

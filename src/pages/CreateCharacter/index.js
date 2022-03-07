@@ -42,6 +42,15 @@ const CreateCharacter = () => {
         setProfileEdited(newProfile)
     }
 
+    // const cancelButton = () => {
+    //     const cancel = document.getElementById("cancelEdit");
+    //     if (editProfile) {
+    //       cancel.style.display = "flex";
+    //     } else {
+    //       cancel.style.display = "none";
+    //     }
+    //   }
+
 
     return (
         <div>
@@ -74,7 +83,8 @@ const CreateCharacter = () => {
                                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewIayhIZTUcfaXzG_cV0vPncxMbPYWhQrVpOCiwodpvObUmnLQP-4WgkucCRSgKRcVJU&usqp=CAU"
                                                     width={35}
                                                     height={40}
-                                                    onClick={() => handleEdit(newProfile)}
+                                                    onClick={() => handleEdit(newProfile)
+                                                    }
                                                 />
                                             </button>
 

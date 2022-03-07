@@ -15,35 +15,37 @@ const Login = ({ setUser }) => {
         setAgentName(e.target.value)
 
     }
-
+    
     const submitAgentName = async (e) => {
         e.preventDefault()
 
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/allusers`, agentName)
-            // /${username}
+            const response = await axios.get(`http://localhost:8080/api/v1/allusers/${agentName}`, agentName)            
+            
+            console.log(response)
 
-            if(response.status === 200) {
-                setUser(agentName)
+            if(response.status !== 200) {
                 // Once logged in, redirect back to homepage
-                redirectHome('/')
-
+                
             } else{
-                window.alert("Not a Valid Agent")
+                setUser(agentName)
+                redirectHome('/')
             }
-
+            
         } catch (error) {
             console.log(error)
+            window.alert("Not a Valid Agent")
             
         }
 
     }
+    
 
 
     return (
         <div className="loginPage" id="bgDiv">
 
-            <form className="loginPage" onSubmit={submitAgentName} action='/home'>
+            <form className="loginPage" onSubmit={submitAgentName} >
                 <div className="mb-3" className="dataEntryField">
                     <label htmlFor="updateInputName1" className="form-label">Agent ID#:</label>
                     <input
