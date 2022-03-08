@@ -47,7 +47,7 @@ const Navbar = () => {
                                 </li>
                                 // Sublinks within nav bar that become visible onces user logs in
                                 :
-                                <li>
+                                <ul>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Top Secret Files
@@ -62,7 +62,7 @@ const Navbar = () => {
 
                                         </ul>
                                     </li>
-                                </li>
+                                </ul>
                         }
                     </ul>
                 </div>

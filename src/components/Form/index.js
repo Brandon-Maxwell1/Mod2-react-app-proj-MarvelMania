@@ -75,13 +75,14 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
             </div>
 
             <div>
-                <label htmlFor="formFileLg" className="form-label">Upload Your Hero / Villain Image</label>
+                <label htmlFor="profileImage" className="form-label">Upload Your Character Image:</label>
                 <input
                     className="form-control form-control-md"
                     id="formFilemd"
-                    type="file"
-                    // value={profileImage}
-                    onChange={e => setProfileImage(e.target.files[0])}
+                    type="text"
+                    placeholder="Insert URL Here..."
+                    value={profileImage}
+                    onChange={e => setProfileImage(e.target.value)}
                 />
             </div>
 

@@ -19,8 +19,12 @@ const Login = ({ setUser }) => {
     const submitAgentName = async (e) => {
         e.preventDefault()
 
+        const verifyUser = {
+            username: agentName
+        }
+
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/allusers/${agentName}`, agentName)            
+            const response = await axios.post(`http://localhost:8080/api/v1/login`, verifyUser)            
             
             console.log(response)
 

@@ -16,7 +16,7 @@ const CreateCharacter = () => {
 
     useEffect(() => {
         GetCreatedProfile();
-    }, [])    
+    }, [])
 
     const GetCreatedProfile = async () => {
         try {
@@ -55,10 +55,10 @@ const CreateCharacter = () => {
     return (
         <div>
             <br></br>
-            <Form 
-            GetCreatedProfile={GetCreatedProfile} 
-            editProfile={editProfile}
-            profileEdited={profileEdited}
+            <Form
+                GetCreatedProfile={GetCreatedProfile}
+                editProfile={editProfile}
+                profileEdited={profileEdited}
             />
 
             <div id="profile-container">
