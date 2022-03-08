@@ -2,7 +2,7 @@ Project Name & Pitch
 MarvelMania
 
 To Visit App:
-***Enter published site***
+[MarvelMania](http://vibrant-snyder-cb4ce8.netlify.app)
 
 An application used to navigate through the immensely deep and flavorful world of Marvel.  From Character/Profile Searches as a mock-Agent, to Historical Archives(comic book) searches; both allowing you to filter data from the Marvel API, based on user preferenc.  Built with React, JavaScript, and CSS.
 
@@ -47,7 +47,7 @@ To Start Server:
 npm start
 
 To Visit App:
-***Enter published site again***
+[MarvelMania](http://vibrant-snyder-cb4ce8.netlify.app)
 
 Reflection
 What was the context for this project? (ie: was this a side project? was this for Turing? was this for an experiment?)
