@@ -69,7 +69,8 @@ const CreateCharacter = () => {
                             <div className="profile-card">
                                 <h6>ID #{newProfile.id + 2001000}
                                 </h6>
-                                <img src={newProfile.thumbnailpath ? newProfile.thumbnailpath : NoImage} className="card-img"
+                                <img src={newProfile.thumbnailpath ? newProfile.thumbnailpath : NoImage} style={{ width: "285px", height: "450px" }}
+                                    className="card-img"
                                     alt="Character Image" />
 
                                 <div className="card-body" id="cardBodyDiv">

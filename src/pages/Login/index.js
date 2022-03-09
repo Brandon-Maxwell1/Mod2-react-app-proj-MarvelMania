@@ -80,7 +80,7 @@ const Login = ({ setUser }) => {
 
                     <label className="form-check-label" htmlFor="updateClearance" title="In compliance with the Sokovia Accords, confirm you're Clearance Level 7.">CLEARANCE LEVEL 7</label>
                 </div>
-                <button type="submit" className="btn btn-primary">Access</button>
+                <button type="submit" className="btn btn-primary">Login</button>
                 <br></br>
                 <Link to="/newUser">
                     <button type="submit" className="btn btn-primary">New Agent</button>

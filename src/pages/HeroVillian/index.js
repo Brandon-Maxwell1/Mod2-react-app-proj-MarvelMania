@@ -35,7 +35,7 @@ const HeroVillian = ({ profileList }) => {
                 />
                 <input type="submit" value="Submit" />
             </form>
-            <Buttons />
+            {/* <Buttons /> */}
             <br></br>
             <div>
             <p>

@@ -30,6 +30,7 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
                 window.alert(`Successfully Update ${profileEdited.name} Profile`)
             } else {
                 const response = await axios.post("http://localhost:8080/api/v1/addprofile", profileNew)
+                console.log("this is my profile", profileNew)
 
                 if (response.status === 200) {
                     setProfileName('')
@@ -48,7 +49,7 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
 
     return (
         <form onSubmit={handleSubmit} >
-            <div className="mb-3" className="dataEntryField">
+            <div className="mb-3 dataEntryField">
                 <label htmlFor="updateInputName1" className="form-label">Profile Name:</label>
                 <input
                     type="text"
@@ -91,9 +92,9 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
                 <button type="submit">
                     {editProfile ? "Edit Profile" : "Create Profile"}
                 </button>
-                <button id="cancelEdit" type="submit">
+                {/* <button id="cancelEdit" type="submit">
                     {editProfile ? "Cancel Edit" : ""}
-                </button>
+                </button> */}
             </div>
 
         </form>
