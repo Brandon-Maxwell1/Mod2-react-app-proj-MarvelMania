@@ -15,7 +15,7 @@ const Login = ({ setUser }) => {
         setAgentName(e.target.value)
 
     }
-    
+
     const submitAgentName = async (e) => {
         e.preventDefault()
 
@@ -24,33 +24,33 @@ const Login = ({ setUser }) => {
         }
 
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/login`, verifyUser)            
-            
+            const response = await axios.post(`http://localhost:8080/api/v1/login`, verifyUser)
+
             console.log(response)
 
-            if(response.status !== 200) {
+            if (response.status !== 200) {
                 // Once logged in, redirect back to homepage
-                
-            } else{
+
+            } else {
                 setUser(agentName)
                 redirectHome('/')
             }
-            
+
         } catch (error) {
             console.log(error)
             window.alert("Not a Valid Agent")
-            
+
         }
 
     }
-    
+
 
 
     return (
         <div className="loginPage" id="bgDiv">
 
             <form className="loginPage" onSubmit={submitAgentName} >
-                <div className="mb-3" className="dataEntryField">
+                <div className="mb-3 dataEntryField">
                     <label htmlFor="updateInputName1" className="form-label">Agent ID#:</label>
                     <input
                         placeholder='Enter Agent Name...'
@@ -64,7 +64,7 @@ const Login = ({ setUser }) => {
                     <div id="nameHelp" className="form-text"></div>
                 </div>
                 <br></br>
-                <div className="mb-3" className="dataEntryField">
+                <div className="mb-3 dataEntryField">
                     <label htmlFor="updateInputPassword1" className="form-label">Encryption Key:</label>
                     <input
                         placeholder='Enter Password...'

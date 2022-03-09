@@ -3,21 +3,21 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { send } from 'emailjs-com';
-import{ init } from '@emailjs/browser';
+import { init } from '@emailjs/browser';
 init("0b2V77y6Al_RlIYmQ");
 
 const NewUserLogin = () => {
 
     const [agentName, setAgentName] = useState('');
     const [agentPassword, setAgentPassword] = useState('');
-    const [agentEmail, setAgentEmail] = useState('');    
+    const [agentEmail, setAgentEmail] = useState('');
     const [agentID, setAgentID] = useState('');
     const redirectToLogin = useNavigate();
     const [toSend, setToSend] = useState({
-        to_name:'',
-        to_password:'',
-        to_id:'',
-        to_email:'',
+        to_name: '',
+        to_password: '',
+        to_id: '',
+        to_email: '',
     })
 
     console.log(agentName, agentPassword, agentEmail);
@@ -34,7 +34,7 @@ const NewUserLogin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const newUser= {
+            const newUser = {
                 username: agentName,
                 email: agentEmail,
                 id: agentID
@@ -47,17 +47,17 @@ const NewUserLogin = () => {
                 toSend,
                 '0b2V77y6Al_RlIYmQ'
             )
-            .then((resp) => {
-                console.log('SUCCESS', resp.status, resp.text)
-                window.alert(`Successfully Added Agent ${newUser.username}`)
-            })
-            
+                .then((resp) => {
+                    console.log('SUCCESS', resp.status, resp.text)
+                    window.alert(`Successfully Added Agent ${newUser.username}`)
+                })
+
         } catch (error) {
             console.log(error)
         }
-        redirectToLogin('/login')        
-    }   
-    
+        redirectToLogin('/login')
+    }
+
 
     // const handleChange = (e) => {
     //     setToSend({ ...toSend, [e.target.name]: e.target.value });
@@ -68,7 +68,7 @@ const NewUserLogin = () => {
         <div>
 
             <form className="loginPage" action='/login' onSubmit={handleSubmit} >
-                <div className="mb-3" className="dataEntryField">
+                <div className="mb-3 dataEntryField">
                     <label htmlFor="updateInputName1" className="form-label">Agent Name:</label>
                     <input
                         placeholder='Create New Agent...'
@@ -77,12 +77,12 @@ const NewUserLogin = () => {
                         id="updateInputName1"
                         aria-describedby="nameHelp"
                         value={toSend.to_name.agentName}
-                        onChange={e => setAgentName(e.target.value)}      
+                        onChange={e => setAgentName(e.target.value)}
                     />
                     <div id="nameHelp" className="form-text"></div>
                 </div>
                 <br></br>
-                <div className="mb-3" className="dataEntryField">
+                <div className="mb-3 dataEntryField">
                     <label htmlFor="updateInputPassword1" className="form-label">Encryption:</label>
                     <input
                         placeholder='Create Encryption Key...'
@@ -94,15 +94,15 @@ const NewUserLogin = () => {
                     />
                 </div>
                 <br></br>
-                <div className="mb-3" className="dataEntryField">
+                <div className="mb-3 dataEntryField">
                     <label htmlFor="updateInputPassword1" className="form-label">Secure Email:</label>
                     <input
                         placeholder='Enter Email...'
                         type="email"
                         className="form-control"
-                        id="updateInputPassword1"     
-                        value={toSend.to_email.agentEmail}                   
-                        onChange={e => setAgentEmail(e.target.value)}      
+                        id="updateInputPassword1"
+                        value={toSend.to_email.agentEmail}
+                        onChange={e => setAgentEmail(e.target.value)}
                     />
                 </div>
                 <div id="invisibleID">{toSend.to_id.agentID}</div>

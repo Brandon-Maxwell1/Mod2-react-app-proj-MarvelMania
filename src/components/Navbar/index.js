@@ -8,17 +8,18 @@ import './style.css';
 const Navbar = () => {
     const user = useContext(UserContext)
     console.log('nav', user)
-    return (        
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav-container">
+    return (
+
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             {/* Using userContext to greet the user("agents") name once they login */}
-            {                
+            {
                 !user ? "Welcome Agent, Login to Authenticate" : `Welcome Back Agent ${user}!`
             }
             <div className="container-fluid">
 
                 <div id="navBarHomeCss">
                     <Link className="nav-link" to="/">
-                        <img src="https://assets3.thrillist.com/v1/image/737136/828x610/flatten;crop;webp=auto;jpeg_quality=70" alt='Marvel Headquarters' width={130} height={65} /> <h3>Home</h3>
+                        <img src="https://assets3.thrillist.com/v1/image/737136/828x610/flatten;crop;webp=auto;jpeg_quality=70" alt='Marvel Headquarters' width={130} height={65} /> Home
                     </Link>
 
                 </div>
@@ -27,27 +28,26 @@ const Navbar = () => {
                     <img src="https://rukminim1.flixcart.com/image/416/416/jn97frk0/art-craft-kit/m/c/g/comics-the-punisher-logo-3-carded-button-pinback-marvel-original-imaf9zygdpv5pw7u.jpeg?q=70" alt='' width={30} height={45} />Menu
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav" id="navbarNav">
+                    <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="contact">
                                 <img src="https://static3.srcdn.com/wordpress/wp-content/uploads/2022/01/Andrew-Garfield-Amazing-Spider-Man-2-phone.jpg" alt='Contact Us' width={80} height={45} />
-                                <h6>Contact Us </h6>
+                                Contact Us
                             </Link>
                         </li>
-                        <div></div>
-                        
+                        <br></br>
                         {/*Implementing useContext to enter in name and pseudo-password */}
                         {
-                            !user ?                            
+                            !user ?
                                 <li className="nav-item">
                                     <Link to="login">
                                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh65ZQIeEqVpP-G2EEIXd7h7fxXQZoQIBYNw&usqp=CAU" alt="Login" width={80} height={45} />
-                                        <h6>Login</h6>
+                                        Login
                                     </Link>
                                 </li>
                                 // Sublinks within nav bar that become visible onces user logs in
                                 :
-                                <ul>
+                                <li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Top Secret Files
@@ -62,12 +62,12 @@ const Navbar = () => {
 
                                         </ul>
                                     </li>
-                                </ul>
+                                </li>
                         }
                     </ul>
                 </div>
             </div>
-        </nav>        
+        </nav>
     );
 }
 

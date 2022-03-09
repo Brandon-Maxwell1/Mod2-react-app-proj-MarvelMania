@@ -11,9 +11,8 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
     const [profileName, setProfileName] = useState('');
     const [profileDescription, setProfileDescription] = useState('');
     const [profileImage, setProfileImage] = useState('');
-
-
     const refreshPage = useNavigate();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,9 +24,14 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
         try {
             if (editProfile) {
                 const response = await axios.put(`http://localhost:8080/api/v1/profile/${profileEdited.id}`, profileNew)
-                GetCreatedProfile()
-                refreshPage('/create')
-                window.alert(`Successfully Update ${profileEdited.name} Profile`)
+                if (response.status === 200) {
+                    GetCreatedProfile()
+                    setProfileImage('')
+                    refreshPage('/create')
+                    window.alert(`Successfully Updated ${profileEdited.name} Profile`)
+
+                }
+
             } else {
                 const response = await axios.post("http://localhost:8080/api/v1/addprofile", profileNew)
                 console.log("this is my profile", profileNew)
