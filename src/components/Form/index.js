@@ -23,7 +23,7 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
         }
         try {
             if (editProfile) {
-                const response = await axios.put(`http://localhost:8080/api/v1/profile/${profileEdited.id}`, profileNew)
+                const response = await axios.put(`https://marvel-backend-application.herokuapp.com/api/v1/profile/${profileEdited.id}`, profileNew)
                 if (response.status === 200) {
                     GetCreatedProfile()
                     setProfileImage('')
@@ -33,7 +33,7 @@ const Form = ({ GetCreatedProfile, editProfile, profileEdited }) => {
                 }
 
             } else {
-                const response = await axios.post("http://localhost:8080/api/v1/addprofile", profileNew)
+                const response = await axios.post("https://marvel-backend-application.herokuapp.com/api/v1/addprofile", profileNew)
                 console.log("this is my profile", profileNew)
 
                 if (response.status === 200) {

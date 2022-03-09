@@ -63,7 +63,7 @@ const App = () => {
 
   const VerifiedLogins = async () => {
     try{
-      const response = await axios.get("http://localhost:8080/api/v1/allusers")
+      const response = await axios.get("https://marvel-backend-application.herokuapp.com/api/v1/allusers")
       setVerifiedLogins(response.data)
       console.log(response.data)
     } catch(error) {

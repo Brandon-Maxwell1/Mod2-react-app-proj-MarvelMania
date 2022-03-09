@@ -24,7 +24,7 @@ const Login = ({ setUser }) => {
         }
 
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/login`, verifyUser)
+            const response = await axios.post(`https://marvel-backend-application.herokuapp.com/api/v1/login`, verifyUser)
 
             console.log(response)
 

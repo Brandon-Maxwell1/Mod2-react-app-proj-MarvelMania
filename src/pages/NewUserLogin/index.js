@@ -24,7 +24,7 @@ const NewUserLogin = () => {
 
     const hiddenID = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/profile/${id}`)
+            const response = await axios.get(`https://marvel-backend-application.herokuapp.com/api/v1/profile/${id}`)
             setAgentID();
         } catch (error) {
             console.log(error)
@@ -39,7 +39,7 @@ const NewUserLogin = () => {
                 email: agentEmail,
                 id: agentID
             }
-            const response = await axios.post("http://localhost:8080/api/v1/adduser", newUser)
+            const response = await axios.post("https://marvel-backend-application.herokuapp.com/api/v1/adduser", newUser)
 
             send(
                 'service_a0t5uk5',

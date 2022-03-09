@@ -20,7 +20,7 @@ const CreateCharacter = () => {
 
     const GetCreatedProfile = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/api/v1/allprofiles")
+            const response = await axios.get("https://marvel-backend-application.herokuapp.com/api/v1/allprofiles")
             setCreatedProfile(response.data)
             console.log(response.data)
         } catch (error) {
@@ -30,7 +30,7 @@ const CreateCharacter = () => {
 
     const DeleteProfile = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/v1/profile/${id}`)
+            const response = await axios.delete(`https://marvel-backend-application.herokuapp.com/api/v1/profile/${id}`)
             GetCreatedProfile();
         } catch (error) {
             console.log(error)
