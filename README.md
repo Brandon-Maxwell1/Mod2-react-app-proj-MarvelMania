@@ -24,10 +24,18 @@ Contact Us Page
 Login Page
 ![image](https://user-images.githubusercontent.com/93785928/152709386-def0cbfd-1c0d-44a2-a5fa-b927880c03e7.png)
 
+
+Add New User Page
+
+
 Historical Archives Page(Comics)
 
 
 X-Files Page(Profiles/Characters)
+
+
+Create Character Page
+![image](https://user-images.githubusercontent.com/93785928/157385112-efe1a8b5-058d-457e-a74e-78b4e8d8627b.png)
 
 
 Installation and Setup Instructions
