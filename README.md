@@ -52,7 +52,7 @@ To Visit App:
 [MarvelMania](http://vibrant-snyder-cb4ce8.netlify.app)
 
 Reflection
-What was the context for this project? (ie: was this a side project? was this for Turing? was this for an experiment?)
+
 Context:
 This was created for a Software Engineering Bootcamp I attended from 11/15/21 through 3/15/22
 Phase 1 was for Module 2's project; creating a React app with numerous components and navigated through the React Router.  The build concept was focused on creating a fan site for all things Marvel.  A one-stop page where you can explore your favorite characters, as well as ones you'd never heard of previously. Where you could browse comic book archives, and search which characters are featured in comics as well as all the comics that a character if featured in. Also included were some embedded youtube videos of upcoming Marvel movie trailers, and the footer was full of hyperlinks to multiple different Marvel relevant sites and activities(ie easter egg webpage, MCU wiki, Live Action Marvel events, etc)
